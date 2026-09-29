@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import timesData from "@/data/times.json";
 import { ResultadoComparacao, Time } from "@/lib/types";
+import { indiceDoDia } from "@/lib/time-do-dia";
 
 const times = timesData as Time[];
 
@@ -30,47 +31,99 @@ export default function Home() {
   const [carregando, setCarregando] = useState(false);
   const [tokenPartida, setTokenPartida] = useState<string | null>(null);
   const [carregandoNovoJogo, setCarregandoNovoJogo] = useState(false);
+  const [carregouStorage, setCarregouStorage] = useState(false);
+  const diaAtual = indiceDoDia();
+
+  useEffect(() => {
+    if (modo !== "diario") {
+      setCarregouStorage(false);
+    }
+  }, [modo]);
+
+  useEffect(() => {
+    if (modo !== "diario") return;
+
+    const salvo = localStorage.getItem(`dailyAttempts_${diaAtual}`);
+    if (salvo) {
+      try {
+        const tentativasSalvas: { nome: string; resultado: ResultadoComparacao }[] =
+          JSON.parse(salvo);
+        setTentativas(tentativasSalvas);
+        setVenceu(tentativasSalvas.some((t) => t.resultado.acertou));
+      } catch (e) {
+        console.error("Falha ao ler tentativas salvas:", e);
+        setTentativas([]);
+        setVenceu(false);
+      }
+    } else {
+      setTentativas([]);
+      setVenceu(false);
+    }
+    setCarregouStorage(true);
+  }, [diaAtual, modo]);
+
+  useEffect(() => {
+    if (modo !== "diario" || !carregouStorage) return;
+    try {
+      localStorage.setItem(`dailyAttempts_${diaAtual}`, JSON.stringify(tentativas));
+    } catch (e) {
+      console.error("Falha ao salvar tentativas:", e);
+    }
+  }, [tentativas, modo, diaAtual, carregouStorage]);
 
   async function iniciarNovoJogoIlimitado() {
     setCarregandoNovoJogo(true);
-    const res = await fetch("/api/new-game", { method: "POST" });
-    const data = await res.json();
-    setTokenPartida(data.token);
-    setTentativas([]);
-    setVenceu(false);
-    setPalpiteInput("");
-    setCarregandoNovoJogo(false);
+    try {
+      const res = await fetch("/api/new-game", { method: "POST" });
+      if (!res.ok) throw new Error(`Servidor respondeu ${res.status}`);
+      const data = await res.json();
+      setTokenPartida(data.token);
+      setTentativas([]);
+      setVenceu(false);
+      setPalpiteInput("");
+    } catch (e) {
+      console.error("Falha ao iniciar novo jogo:", e);
+    } finally {
+      setCarregandoNovoJogo(false);
+    }
   }
 
   function trocarModo(novoModo: Modo) {
     setModo(novoModo);
-    setTentativas([]);
     setVenceu(false);
     setPalpiteInput("");
-    setTokenPartida(null);
     if (novoModo === "ilimitado") {
+      setTentativas([]);
+      setTokenPartida(null);
       iniciarNovoJogoIlimitado();
     }
   }
 
   async function enviarPalpite(time: Time) {
     if (modo === "ilimitado" && !tokenPartida) return;
+    if (carregando) return;
 
     setCarregando(true);
-    const res = await fetch("/api/guess", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        guess: time.id,
-        modo,
-        token: modo === "ilimitado" ? tokenPartida : undefined,
-      }),
-    });
-    const resultado: ResultadoComparacao = await res.json();
-    setTentativas((prev) => [...prev, { nome: time.nome, resultado }]);
-    if (resultado.acertou) setVenceu(true);
-    setPalpiteInput("");
-    setCarregando(false);
+    try {
+      const res = await fetch("/api/guess", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          guess: time.id,
+          modo,
+          token: modo === "ilimitado" ? tokenPartida : undefined,
+        }),
+      });
+      if (!res.ok) throw new Error(`Servidor respondeu ${res.status}`);
+      const resultado: ResultadoComparacao = await res.json();
+      setTentativas((prev) => [...prev, { nome: time.nome, resultado }]);
+      if (resultado.acertou) setVenceu(true);
+      setPalpiteInput("");
+    } catch (e) {
+      console.error("Falha ao enviar palpite:", e);
+    } finally {
+      setCarregando(false);
+    }
   }
 
   const sugestoes = palpiteInput

@@ -13,3 +13,4 @@ Thumbs.db
 .idea/
 *.tsbuildinfo
 next-env.d.ts
+.claude
