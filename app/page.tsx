@@ -33,6 +33,9 @@ export default function Home() {
   const [carregandoNovoJogo, setCarregandoNovoJogo] = useState(false);
   const [carregouStorage, setCarregouStorage] = useState(false);
   const diaAtual = indiceDoDia();
+  const [desistiu, setDesistiu] = useState(false);
+  const [timeRevelado, setTimeRevelado] = useState<Time | null>(null);
+  const [revelando, setRevelando] = useState(false);
 
   useEffect(() => {
     if (modo !== "diario") {
@@ -73,28 +76,26 @@ export default function Home() {
 
   async function iniciarNovoJogoIlimitado() {
     setCarregandoNovoJogo(true);
-    try {
-      const res = await fetch("/api/new-game", { method: "POST" });
-      if (!res.ok) throw new Error(`Servidor respondeu ${res.status}`);
-      const data = await res.json();
-      setTokenPartida(data.token);
-      setTentativas([]);
-      setVenceu(false);
-      setPalpiteInput("");
-    } catch (e) {
-      console.error("Falha ao iniciar novo jogo:", e);
-    } finally {
-      setCarregandoNovoJogo(false);
-    }
+    const res = await fetch("/api/new-game", { method: "POST" });
+    const data = await res.json();
+    setTokenPartida(data.token);
+    setTentativas([]);
+    setVenceu(false);
+    setDesistiu(false);
+    setTimeRevelado(null);
+    setPalpiteInput("");
+    setCarregandoNovoJogo(false);
   }
 
   function trocarModo(novoModo: Modo) {
     setModo(novoModo);
+    setTentativas([]);
     setVenceu(false);
+    setDesistiu(false);
+    setTimeRevelado(null);
     setPalpiteInput("");
+    setTokenPartida(null);
     if (novoModo === "ilimitado") {
-      setTentativas([]);
-      setTokenPartida(null);
       iniciarNovoJogoIlimitado();
     }
   }
@@ -124,6 +125,22 @@ export default function Home() {
     } finally {
       setCarregando(false);
     }
+  }
+
+  async function revelarResposta() {
+    if (!tokenPartida) return;
+    setRevelando(true);
+    const res = await fetch("/api/reveal", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: tokenPartida }),
+    });
+    const data = await res.json();
+    if (data.time) {
+      setTimeRevelado(data.time);
+      setDesistiu(true);
+    }
+    setRevelando(false);
   }
 
   const sugestoes = palpiteInput
@@ -158,7 +175,7 @@ export default function Home() {
         </button>
       </div>
 
-      {modo === "ilimitado" && (venceu || carregandoNovoJogo) && (
+      {modo === "ilimitado" && (venceu || desistiu || carregandoNovoJogo) && (
         <button
           className="mb-6 px-5 py-2 rounded-lg bg-green-600 hover:bg-green-500 font-semibold disabled:opacity-50"
           onClick={iniciarNovoJogoIlimitado}
@@ -172,7 +189,24 @@ export default function Home() {
         <p className="text-zinc-500 text-sm mb-6">Preparando partida...</p>
       )}
 
-      {!venceu && (modo === "diario" || tokenPartida) && (
+      {modo === "ilimitado" && tokenPartida && !venceu && !desistiu && (
+        <button
+          className="mb-6 text-sm text-zinc-400 underline hover:text-zinc-200 disabled:opacity-50"
+          onClick={revelarResposta}
+          disabled={revelando || carregando}
+        >
+          {revelando ? "Revelando..." : "Revelar resposta"}
+        </button>
+      )}
+
+      {desistiu && timeRevelado && (
+        <div className="mb-4 text-red-400 font-semibold text-lg text-center">
+          O time era{" "}
+          <span className="text-white">{timeRevelado.nome}</span>
+        </div>
+      )}
+
+      {!venceu && !desistiu && (modo === "diario" || tokenPartida) && (
         <div className="relative w-full max-w-sm mb-8">
           <input
             className="w-full rounded-lg px-4 py-2 text-black"
@@ -214,6 +248,35 @@ export default function Home() {
           <span>Tít. Nacionais</span>
           <span>Tít. Internacionais</span>
         </div>
+
+        {desistiu && timeRevelado && (
+          <div className="grid grid-cols-8 gap-2 mb-2 min-w-[760px]">
+            <span className="flex items-center px-2 font-semibold">
+              {timeRevelado.nome}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.estado}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.regiao}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.fundacao}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.divisao}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.titulosEstaduais}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.titulosNacionais}
+            </span>
+            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+              {timeRevelado.titulosInternacionais}
+            </span>
+          </div>
+        )}
 
         {tentativas
           .slice()
