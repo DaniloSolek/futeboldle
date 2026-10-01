@@ -19,6 +19,14 @@ function seta(direcao?: "maior" | "menor") {
   return "";
 }
 
+function normalizar(texto: string): string {
+  return texto
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, "");
+}
+
 type Modo = "diario" | "ilimitado";
 
 export default function Home() {
@@ -145,7 +153,7 @@ export default function Home() {
 
   const sugestoes = palpiteInput
     ? times.filter((t) =>
-        t.nome.toLowerCase().includes(palpiteInput.toLowerCase())
+        normalizar(t.nome).startsWith(normalizar(palpiteInput))
       )
     : [];
 
@@ -216,7 +224,7 @@ export default function Home() {
             disabled={carregando || carregandoNovoJogo}
           />
           {sugestoes.length > 0 && (
-            <ul className="absolute z-10 w-full bg-zinc-800 rounded-lg mt-1 overflow-hidden">
+            <ul className="absolute z-10 w-full max-h-60 overflow-y-auto bg-zinc-800 rounded-lg mt-1">
               {sugestoes.map((t) => (
                 <li
                   key={t.id}
