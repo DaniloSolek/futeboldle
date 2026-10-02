@@ -140,6 +140,7 @@ export default function Home() {
   async function enviarPalpite(time: Time) {
     if (modo === "ilimitado" && !tokenPartida) return;
     if (carregando) return;
+    if (tentativas.some((t) => t.time.id === time.id)) return;
 
     setCarregando(true);
     try {
@@ -185,9 +186,12 @@ export default function Home() {
     }
   }
 
+  const idsUsados = new Set(tentativas.map((t) => t.time.id));
+
   const sugestoes = palpiteInput
     ? times
         .filter((t) => normalizar(t.nome).startsWith(normalizar(palpiteInput)))
+        .filter((t) => !idsUsados.has(t.id))
         .sort((a, b) => normalizar(a.nome).localeCompare(normalizar(b.nome)))
     : [];
 
