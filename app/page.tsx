@@ -295,15 +295,15 @@ export default function Home() {
       )}
 
       <div className="w-full max-w-3xl overflow-x-auto">
-        <div className="grid grid-cols-8 gap-2 text-xs font-semibold text-zinc-400 mb-2 min-w-[760px]">
-          <span>Time</span>
-          <span>Estado</span>
-          <span>Região</span>
-          <span>Fundação</span>
-          <span>Divisão</span>
-          <span>Tít. Estaduais</span>
-          <span>Tít. Nacionais</span>
-          <span>Tít. Internacionais</span>
+        <div className="grid grid-cols-8 gap-2 text-xs font-semibold text-zinc-400 mb-2 min-w-[760px] text-center">
+          <span className="px-2">Time</span>
+          <span className="px-2">Estado</span>
+          <span className="px-2">Região</span>
+          <span className="px-2">Fundação</span>
+          <span className="px-2">Divisão</span>
+          <span className="px-2">Tít. Estaduais</span>
+          <span className="px-2">Tít. Nacionais</span>
+          <span className="px-2 leading-tight">Tít. Internacionais</span>
         </div>
 
         {desistiu && timeRevelado && (
