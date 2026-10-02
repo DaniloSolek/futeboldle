@@ -41,7 +41,7 @@ function tentativaValida(
   );
 }
 
-const CELL_SIZE = "rounded px-2 py-2 text-center min-h-[48px] flex items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis";
+const CELL_SIZE = "rounded px-2 py-2 text-center min-h-[48px] flex items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis min-w-0 text-sm";
 
 type Modo = "diario" | "ilimitado";
 
