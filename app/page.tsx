@@ -27,13 +27,29 @@ function normalizar(texto: string): string {
     .replace(/[^a-z0-9\s]/g, "");
 }
 
+function tentativaValida(
+  item: unknown
+): item is { time: Time; resultado: ResultadoComparacao } {
+  if (!item || typeof item !== "object") return false;
+  const possivel = item as { time?: unknown; resultado?: unknown };
+  return (
+    !!possivel.time &&
+    typeof possivel.time === "object" &&
+    "id" in (possivel.time as object) &&
+    "nome" in (possivel.time as object) &&
+    !!possivel.resultado
+  );
+}
+
+const CELL_SIZE = "rounded px-2 py-2 text-center min-h-[48px] flex items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis";
+
 type Modo = "diario" | "ilimitado";
 
 export default function Home() {
   const [modo, setModo] = useState<Modo>("diario");
   const [palpiteInput, setPalpiteInput] = useState("");
   const [tentativas, setTentativas] = useState<
-    { nome: string; resultado: ResultadoComparacao }[]
+    { time: Time; resultado: ResultadoComparacao }[]
   >([]);
   const [venceu, setVenceu] = useState(false);
   const [carregando, setCarregando] = useState(false);
@@ -57,12 +73,23 @@ export default function Home() {
     const salvo = localStorage.getItem(`dailyAttempts_${diaAtual}`);
     if (salvo) {
       try {
-        const tentativasSalvas: { nome: string; resultado: ResultadoComparacao }[] =
-          JSON.parse(salvo);
-        setTentativas(tentativasSalvas);
-        setVenceu(tentativasSalvas.some((t) => t.resultado.acertou));
+        const bruto: unknown[] = JSON.parse(salvo);
+        const tentativasValidas = bruto.filter(tentativaValida);
+
+        if (tentativasValidas.length !== bruto.length) {
+          console.warn(
+            "Tentativas salvas em formato antigo foram descartadas."
+          );
+          localStorage.removeItem(`dailyAttempts_${diaAtual}`);
+          setTentativas([]);
+          setVenceu(false);
+        } else {
+          setTentativas(tentativasValidas);
+          setVenceu(tentativasValidas.some((t) => t.resultado.acertou));
+        }
       } catch (e) {
         console.error("Falha ao ler tentativas salvas:", e);
+        localStorage.removeItem(`dailyAttempts_${diaAtual}`);
         setTentativas([]);
         setVenceu(false);
       }
@@ -125,7 +152,7 @@ export default function Home() {
       });
       if (!res.ok) throw new Error(`Servidor respondeu ${res.status}`);
       const resultado: ResultadoComparacao = await res.json();
-      setTentativas((prev) => [...prev, { nome: time.nome, resultado }]);
+      setTentativas((prev) => [...prev, { time, resultado }]);
       if (resultado.acertou) setVenceu(true);
       setPalpiteInput("");
     } catch (e) {
@@ -138,23 +165,28 @@ export default function Home() {
   async function revelarResposta() {
     if (!tokenPartida) return;
     setRevelando(true);
-    const res = await fetch("/api/reveal", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token: tokenPartida }),
-    });
-    const data = await res.json();
-    if (data.time) {
-      setTimeRevelado(data.time);
-      setDesistiu(true);
+    try {
+      const res = await fetch("/api/reveal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: tokenPartida }),
+      });
+      const data = await res.json();
+      if (data.time) {
+        setTimeRevelado(data.time);
+        setDesistiu(true);
+      }
+    } catch (e) {
+      console.error("Falha ao revelar resposta:", e);
+    } finally {
+      setRevelando(false);
     }
-    setRevelando(false);
   }
 
   const sugestoes = palpiteInput
-    ? times.filter((t) =>
-        normalizar(t.nome).startsWith(normalizar(palpiteInput))
-      )
+    ? times
+        .filter((t) => normalizar(t.nome).startsWith(normalizar(palpiteInput)))
+        .sort((a, b) => normalizar(a.nome).localeCompare(normalizar(b.nome)))
     : [];
 
   return (
@@ -208,9 +240,17 @@ export default function Home() {
       )}
 
       {desistiu && timeRevelado && (
-        <div className="mb-4 text-red-400 font-semibold text-lg text-center">
-          O time era{" "}
-          <span className="text-white">{timeRevelado.nome}</span>
+        <div className="mb-4 flex items-center justify-center gap-2 text-red-400 font-semibold text-lg">
+          <span>O time era</span>
+          <img
+            src={`/escudos/${timeRevelado.id}.png`}
+            alt={timeRevelado.nome}
+            title={timeRevelado.nome}
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
+          />
+          <span>{timeRevelado.nome}</span>
         </div>
       )}
 
@@ -228,10 +268,17 @@ export default function Home() {
               {sugestoes.map((t) => (
                 <li
                   key={t.id}
-                  className="px-4 py-2 hover:bg-zinc-700 cursor-pointer"
+                  className="flex items-center gap-3 px-4 py-2 hover:bg-zinc-700 cursor-pointer"
                   onClick={() => enviarPalpite(t)}
                 >
-                  {t.nome}
+                  <img
+                    src={`/escudos/${t.id}.png`}
+                    alt={t.nome}
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 object-contain shrink-0"
+                  />
+                  <span>{t.nome}</span>
                 </li>
               ))}
             </ul>
@@ -258,29 +305,38 @@ export default function Home() {
         </div>
 
         {desistiu && timeRevelado && (
-          <div className="grid grid-cols-8 gap-2 mb-2 min-w-[760px]">
-            <span className="flex items-center px-2 font-semibold">
-              {timeRevelado.nome}
+          <div className="grid grid-cols-8 gap-2 mb-2 min-w-[760px] items-stretch">
+            <span
+              className="flex items-center justify-center px-2 min-h-[48px]"
+              title={timeRevelado.nome}
+            >
+              <img
+                src={`/escudos/${timeRevelado.id}.png`}
+                alt={timeRevelado.nome}
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+              />
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.estado}
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.regiao}
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.fundacao}
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.divisao}
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.titulosEstaduais}
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.titulosNacionais}
             </span>
-            <span className="rounded px-2 py-2 text-center bg-green-600 text-white">
+            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
               {timeRevelado.titulosInternacionais}
             </span>
           </div>
@@ -292,25 +348,36 @@ export default function Home() {
           .map((t, i) => (
             <div
               key={i}
-              className="grid grid-cols-8 gap-2 mb-2 min-w-[760px]"
+              className="grid grid-cols-8 gap-2 mb-2 min-w-[760px] items-stretch"
             >
-              <span className="flex items-center px-2">{t.nome}</span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className="flex items-center justify-center px-2 min-h-[48px]"
+                title={t.time.nome}
+              >
+                <img
+                  src={`/escudos/${t.time.id}.png`}
+                  alt={t.time.nome}
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 object-contain"
+                />
+              </span>
+              <span
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.estado.status]
                 }`}
               >
                 {t.resultado.atributos.estado.valor}
               </span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.regiao.status]
                 }`}
               >
                 {t.resultado.atributos.regiao.valor}
               </span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.fundacao.status]
                 }`}
               >
@@ -318,14 +385,14 @@ export default function Home() {
                 {seta(t.resultado.atributos.fundacao.direcao)}
               </span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.divisao.status]
                 }`}
               >
                 {t.resultado.atributos.divisao.valor}
               </span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.titulosEstaduais.status]
                 }`}
               >
@@ -333,7 +400,7 @@ export default function Home() {
                 {seta(t.resultado.atributos.titulosEstaduais.direcao)}
               </span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.titulosNacionais.status]
                 }`}
               >
@@ -341,7 +408,7 @@ export default function Home() {
                 {seta(t.resultado.atributos.titulosNacionais.direcao)}
               </span>
               <span
-                className={`rounded px-2 py-2 text-center ${
+                className={`${CELL_SIZE} ${
                   corStatus[t.resultado.atributos.titulosInternacionais.status]
                 }`}
               >
