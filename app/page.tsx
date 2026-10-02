@@ -123,6 +123,8 @@ export default function Home() {
   }
 
   function trocarModo(novoModo: Modo) {
+    if (novoModo === modo) return;
+
     setModo(novoModo);
     setTentativas([]);
     setVenceu(false);
