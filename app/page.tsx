@@ -24,7 +24,20 @@ function normalizar(texto: string): string {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, "");
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function nomeCorresponde(nome: string, busca: string): boolean {
+  const nomeNorm = normalizar(nome);
+  const buscaNorm = normalizar(busca);
+  if (!buscaNorm) return false;
+
+  if (nomeNorm.startsWith(buscaNorm)) return true;
+
+  const palavras = nomeNorm.split(" ");
+  return palavras.some((p) => p.startsWith(buscaNorm));
 }
 
 function tentativaValida(
@@ -190,7 +203,7 @@ export default function Home() {
 
   const sugestoes = palpiteInput
     ? times
-        .filter((t) => normalizar(t.nome).startsWith(normalizar(palpiteInput)))
+        .filter((t) => nomeCorresponde(t.nome, palpiteInput))
         .filter((t) => !idsUsados.has(t.id))
         .sort((a, b) => normalizar(a.nome).localeCompare(normalizar(b.nome)))
     : [];
