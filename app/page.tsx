@@ -1,17 +1,38 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import timesData from "@/data/times.json";
-import { ResultadoComparacao, Time } from "@/lib/types";
+import { ResultadoComparacao, StatusAtributo, Time } from "@/lib/types";
 import { indiceDoDia } from "@/lib/time-do-dia";
 
 const times = timesData as Time[];
 
-const corStatus: Record<string, string> = {
+type Modo = "diario" | "ilimitado";
+type Atributos = ResultadoComparacao["atributos"];
+type Tentativa = { time: Time; resultado: ResultadoComparacao };
+
+const corStatus: Record<StatusAtributo, string> = {
   correto: "bg-green-600 text-white",
   parcial: "bg-yellow-500 text-white",
   errado: "bg-zinc-700 text-zinc-200",
 };
+
+const GRID = "grid grid-cols-9 gap-2 min-w-[900px]";
+
+const CELULA =
+  "rounded px-2 py-2 text-center text-sm min-h-[56px] min-w-0 flex items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis";
+
+const COLUNAS = [
+  "Time",
+  "Estado",
+  "Região",
+  "Fundação",
+  "Divisão",
+  "Cores",
+  "Tít. Estaduais",
+  "Tít. Nacionais",
+  "Tít. Internacionais",
+];
 
 function seta(direcao?: "maior" | "menor") {
   if (direcao === "maior") return " ↑";
@@ -33,37 +54,109 @@ function nomeCorresponde(nome: string, busca: string): boolean {
   const nomeNorm = normalizar(nome);
   const buscaNorm = normalizar(busca);
   if (!buscaNorm) return false;
-
   if (nomeNorm.startsWith(buscaNorm)) return true;
-
-  const palavras = nomeNorm.split(" ");
-  return palavras.some((p) => p.startsWith(buscaNorm));
+  return nomeNorm.split(" ").some((p) => p.startsWith(buscaNorm));
 }
 
-function tentativaValida(
-  item: unknown
-): item is { time: Time; resultado: ResultadoComparacao } {
+function rankBusca(nome: string, busca: string): number {
+  return normalizar(nome).startsWith(normalizar(busca)) ? 0 : 1;
+}
+
+function tentativaValida(item: unknown): item is Tentativa {
   if (!item || typeof item !== "object") return false;
-  const possivel = item as { time?: unknown; resultado?: unknown };
+  const { time, resultado } = item as {
+    time?: Partial<Time>;
+    resultado?: Partial<ResultadoComparacao>;
+  };
   return (
-    !!possivel.time &&
-    typeof possivel.time === "object" &&
-    "id" in (possivel.time as object) &&
-    "nome" in (possivel.time as object) &&
-    !!possivel.resultado
+    !!time &&
+    typeof time.id === "string" &&
+    typeof time.nome === "string" &&
+    !!resultado?.atributos?.cores
   );
 }
 
-const CELL_SIZE = "rounded px-2 py-2 text-center min-h-[48px] flex items-center justify-center whitespace-nowrap overflow-hidden text-ellipsis min-w-0 text-sm";
+function atributosDoTimeRevelado(t: Time): Atributos {
+  return {
+    estado: { valor: t.estado, status: "correto" },
+    regiao: { valor: t.regiao, status: "correto" },
+    fundacao: { valor: t.fundacao, status: "correto" },
+    divisao: { valor: t.divisao, status: "correto" },
+    cores: { valor: t.cores ?? [], status: "correto" },
+    titulosEstaduais: { valor: t.titulosEstaduais, status: "correto" },
+    titulosNacionais: { valor: t.titulosNacionais, status: "correto" },
+    titulosInternacionais: { valor: t.titulosInternacionais, status: "correto" },
+  };
+}
 
-type Modo = "diario" | "ilimitado";
+function Celula({
+  status,
+  children,
+}: {
+  status: StatusAtributo;
+  children: ReactNode;
+}) {
+  return <span className={`${CELULA} ${corStatus[status]}`}>{children}</span>;
+}
+
+function LinhaAtributos({
+  time,
+  atributos,
+}: {
+  time: Time;
+  atributos: Atributos;
+}) {
+  return (
+    <div className={`${GRID} mb-2 items-stretch`}>
+      <span
+        className="flex items-center justify-center px-2 min-h-[56px]"
+        title={time.nome}
+      >
+        <img
+          src={`/escudos/${time.id}.png`}
+          alt={time.nome}
+          width={40}
+          height={40}
+          className="w-10 h-10 object-contain"
+        />
+      </span>
+
+      <Celula status={atributos.estado.status}>{atributos.estado.valor}</Celula>
+      <Celula status={atributos.regiao.status}>{atributos.regiao.valor}</Celula>
+      <Celula status={atributos.fundacao.status}>
+        {atributos.fundacao.valor}
+        {seta(atributos.fundacao.direcao)}
+      </Celula>
+      <Celula status={atributos.divisao.status}>{atributos.divisao.valor}</Celula>
+
+      <span
+        className={`${CELULA} ${corStatus[atributos.cores.status]} flex-col text-xs leading-tight py-1`}
+      >
+        {atributos.cores.valor.map((cor) => (
+          <span key={cor}>{cor}</span>
+        ))}
+      </span>
+
+      <Celula status={atributos.titulosEstaduais.status}>
+        {atributos.titulosEstaduais.valor}
+        {seta(atributos.titulosEstaduais.direcao)}
+      </Celula>
+      <Celula status={atributos.titulosNacionais.status}>
+        {atributos.titulosNacionais.valor}
+        {seta(atributos.titulosNacionais.direcao)}
+      </Celula>
+      <Celula status={atributos.titulosInternacionais.status}>
+        {atributos.titulosInternacionais.valor}
+        {seta(atributos.titulosInternacionais.direcao)}
+      </Celula>
+    </div>
+  );
+}
 
 export default function Home() {
   const [modo, setModo] = useState<Modo>("diario");
   const [palpiteInput, setPalpiteInput] = useState("");
-  const [tentativas, setTentativas] = useState<
-    { time: Time; resultado: ResultadoComparacao }[]
-  >([]);
+  const [tentativas, setTentativas] = useState<Tentativa[]>([]);
   const [venceu, setVenceu] = useState(false);
   const [carregando, setCarregando] = useState(false);
   const [tokenPartida, setTokenPartida] = useState<string | null>(null);
@@ -83,26 +176,26 @@ export default function Home() {
   useEffect(() => {
     if (modo !== "diario") return;
 
-    const salvo = localStorage.getItem(`dailyAttempts_${diaAtual}`);
+    const chave = `dailyAttempts_${diaAtual}`;
+    const salvo = localStorage.getItem(chave);
+
     if (salvo) {
       try {
         const bruto: unknown[] = JSON.parse(salvo);
-        const tentativasValidas = bruto.filter(tentativaValida);
+        const validas = bruto.filter(tentativaValida);
 
-        if (tentativasValidas.length !== bruto.length) {
-          console.warn(
-            "Tentativas salvas em formato antigo foram descartadas."
-          );
-          localStorage.removeItem(`dailyAttempts_${diaAtual}`);
+        if (validas.length !== bruto.length) {
+          console.warn("Tentativas salvas em formato antigo foram descartadas.");
+          localStorage.removeItem(chave);
           setTentativas([]);
           setVenceu(false);
         } else {
-          setTentativas(tentativasValidas);
-          setVenceu(tentativasValidas.some((t) => t.resultado.acertou));
+          setTentativas(validas);
+          setVenceu(validas.some((t) => t.resultado.acertou));
         }
       } catch (e) {
         console.error("Falha ao ler tentativas salvas:", e);
-        localStorage.removeItem(`dailyAttempts_${diaAtual}`);
+        localStorage.removeItem(chave);
         setTentativas([]);
         setVenceu(false);
       }
@@ -205,7 +298,12 @@ export default function Home() {
     ? times
         .filter((t) => nomeCorresponde(t.nome, palpiteInput))
         .filter((t) => !idsUsados.has(t.id))
-        .sort((a, b) => normalizar(a.nome).localeCompare(normalizar(b.nome)))
+        .sort((a, b) => {
+          const rankA = rankBusca(a.nome, palpiteInput);
+          const rankB = rankBusca(b.nome, palpiteInput);
+          if (rankA !== rankB) return rankA - rankB;
+          return normalizar(a.nome).localeCompare(normalizar(b.nome));
+        })
     : [];
 
   return (
@@ -311,130 +409,33 @@ export default function Home() {
         </div>
       )}
 
-      <div className="w-full max-w-3xl overflow-x-auto">
-        <div className="grid grid-cols-8 gap-2 text-xs font-semibold text-zinc-400 mb-2 min-w-[760px] text-center">
-          <span className="px-2">Time</span>
-          <span className="px-2">Estado</span>
-          <span className="px-2">Região</span>
-          <span className="px-2">Fundação</span>
-          <span className="px-2">Divisão</span>
-          <span className="px-2">Tít. Estaduais</span>
-          <span className="px-2">Tít. Nacionais</span>
-          <span className="px-2 leading-tight">Tít. Internacionais</span>
+      <div className="w-full max-w-5xl overflow-x-auto">
+        <div
+          className={`${GRID} text-xs font-semibold text-zinc-400 mb-2 text-center`}
+        >
+          {COLUNAS.map((coluna) => (
+            <span key={coluna} className="px-2 leading-tight">
+              {coluna}
+            </span>
+          ))}
         </div>
 
         {desistiu && timeRevelado && (
-          <div className="grid grid-cols-8 gap-2 mb-2 min-w-[760px] items-stretch">
-            <span
-              className="flex items-center justify-center px-2 min-h-[48px]"
-              title={timeRevelado.nome}
-            >
-              <img
-                src={`/escudos/${timeRevelado.id}.png`}
-                alt={timeRevelado.nome}
-                width={40}
-                height={40}
-                className="w-10 h-10 object-contain"
-              />
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.estado}
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.regiao}
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.fundacao}
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.divisao}
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.titulosEstaduais}
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.titulosNacionais}
-            </span>
-            <span className={`${CELL_SIZE} bg-green-600 text-white`}>
-              {timeRevelado.titulosInternacionais}
-            </span>
-          </div>
+          <LinhaAtributos
+            time={timeRevelado}
+            atributos={atributosDoTimeRevelado(timeRevelado)}
+          />
         )}
 
         {tentativas
           .slice()
           .reverse()
           .map((t, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-8 gap-2 mb-2 min-w-[760px] items-stretch"
-            >
-              <span
-                className="flex items-center justify-center px-2 min-h-[48px]"
-                title={t.time.nome}
-              >
-                <img
-                  src={`/escudos/${t.time.id}.png`}
-                  alt={t.time.nome}
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 object-contain"
-                />
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.estado.status]
-                }`}
-              >
-                {t.resultado.atributos.estado.valor}
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.regiao.status]
-                }`}
-              >
-                {t.resultado.atributos.regiao.valor}
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.fundacao.status]
-                }`}
-              >
-                {t.resultado.atributos.fundacao.valor}
-                {seta(t.resultado.atributos.fundacao.direcao)}
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.divisao.status]
-                }`}
-              >
-                {t.resultado.atributos.divisao.valor}
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.titulosEstaduais.status]
-                }`}
-              >
-                {t.resultado.atributos.titulosEstaduais.valor}
-                {seta(t.resultado.atributos.titulosEstaduais.direcao)}
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.titulosNacionais.status]
-                }`}
-              >
-                {t.resultado.atributos.titulosNacionais.valor}
-                {seta(t.resultado.atributos.titulosNacionais.direcao)}
-              </span>
-              <span
-                className={`${CELL_SIZE} ${
-                  corStatus[t.resultado.atributos.titulosInternacionais.status]
-                }`}
-              >
-                {t.resultado.atributos.titulosInternacionais.valor}
-                {seta(t.resultado.atributos.titulosInternacionais.direcao)}
-              </span>
-            </div>
+            <LinhaAtributos
+              key={`${t.time.id}-${i}`}
+              time={t.time}
+              atributos={t.resultado.atributos}
+            />
           ))}
       </div>
     </main>

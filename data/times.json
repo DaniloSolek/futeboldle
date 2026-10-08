@@ -8,7 +8,11 @@
     "fundacao": 1915,
     "titulosEstaduais": 55,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "agua-santa",
@@ -19,7 +23,11 @@
     "fundacao": 1981,
     "titulosEstaduais": 0,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "aguia-de-maraba",
@@ -30,7 +38,12 @@
     "fundacao": 1982,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Branco",
+      "Vermelho",
+      "Azul"
+    ]
   },
   {
     "id": "alagoinhas-ac",
@@ -41,7 +54,11 @@
     "fundacao": 1970,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "altos",
@@ -52,7 +69,11 @@
     "fundacao": 2013,
     "titulosEstaduais": 5,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "amazonas",
@@ -63,7 +84,11 @@
     "fundacao": 2019,
     "titulosEstaduais": 3,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Preto"
+    ]
   },
   {
     "id": "america-mg",
@@ -74,7 +99,12 @@
     "fundacao": 1912,
     "titulosEstaduais": 16,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "america-rj",
@@ -85,7 +115,11 @@
     "fundacao": 1904,
     "titulosEstaduais": 10,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "america-rn",
@@ -96,7 +130,11 @@
     "fundacao": 1915,
     "titulosEstaduais": 39,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "anapolis",
@@ -107,7 +145,12 @@
     "fundacao": 1946,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco",
+      "Vermelho"
+    ]
   },
   {
     "id": "aparecidense",
@@ -118,7 +161,11 @@
     "fundacao": 1985,
     "titulosEstaduais": 1,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Amarelo"
+    ]
   },
   {
     "id": "asa",
@@ -129,7 +176,11 @@
     "fundacao": 1952,
     "titulosEstaduais": 6,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "athletic",
@@ -140,7 +191,11 @@
     "fundacao": 1909,
     "titulosEstaduais": 0,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "athletico-pr",
@@ -151,7 +206,11 @@
     "fundacao": 1924,
     "titulosEstaduais": 27,
     "titulosNacionais": 3,
-    "titulosInternacionais": 3
+    "titulosInternacionais": 3,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "atletico-go",
@@ -162,7 +221,11 @@
     "fundacao": 1937,
     "titulosEstaduais": 19,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "atletico-mg",
@@ -173,7 +236,11 @@
     "fundacao": 1908,
     "titulosEstaduais": 50,
     "titulosNacionais": 8,
-    "titulosInternacionais": 4
+    "titulosInternacionais": 4,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "avai",
@@ -184,7 +251,11 @@
     "fundacao": 1923,
     "titulosEstaduais": 19,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "bahia",
@@ -195,7 +266,12 @@
     "fundacao": 1931,
     "titulosEstaduais": 52,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "bahia-de-feira",
@@ -206,7 +282,12 @@
     "fundacao": 1937,
     "titulosEstaduais": 4,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "bangu",
@@ -217,7 +298,11 @@
     "fundacao": 1904,
     "titulosEstaduais": 4,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "barra",
@@ -228,7 +313,11 @@
     "fundacao": 2013,
     "titulosEstaduais": 3,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "botafogo",
@@ -239,7 +328,11 @@
     "fundacao": 1904,
     "titulosEstaduais": 21,
     "titulosNacionais": 5,
-    "titulosInternacionais": 2
+    "titulosInternacionais": 2,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "botafogo-pb",
@@ -250,7 +343,11 @@
     "fundacao": 1931,
     "titulosEstaduais": 31,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "botafogo-sp",
@@ -261,7 +358,12 @@
     "fundacao": 1918,
     "titulosEstaduais": 2,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco",
+      "Preto"
+    ]
   },
   {
     "id": "brasilia",
@@ -272,7 +374,11 @@
     "fundacao": 1975,
     "titulosEstaduais": 10,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "brasiliense",
@@ -283,7 +389,12 @@
     "fundacao": 2000,
     "titulosEstaduais": 12,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "brusque",
@@ -294,7 +405,12 @@
     "fundacao": 1987,
     "titulosEstaduais": 4,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Vermelho",
+      "Verde"
+    ]
   },
   {
     "id": "campinense",
@@ -305,7 +421,11 @@
     "fundacao": 1915,
     "titulosEstaduais": 22,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "capital",
@@ -316,7 +436,12 @@
     "fundacao": 2005,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "cascavel",
@@ -327,7 +452,11 @@
     "fundacao": 2008,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Preto"
+    ]
   },
   {
     "id": "caxias",
@@ -338,7 +467,12 @@
     "fundacao": 1935,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Grená",
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "ceara",
@@ -349,7 +483,11 @@
     "fundacao": 1914,
     "titulosEstaduais": 47,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "ceilandia",
@@ -360,7 +498,11 @@
     "fundacao": 1978,
     "titulosEstaduais": 4,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "central",
@@ -371,7 +513,11 @@
     "fundacao": 1919,
     "titulosEstaduais": 2,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "chapecoense",
@@ -382,7 +528,11 @@
     "fundacao": 1973,
     "titulosEstaduais": 7,
     "titulosNacionais": 1,
-    "titulosInternacionais": 1
+    "titulosInternacionais": 1,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "cianorte",
@@ -393,7 +543,12 @@
     "fundacao": 2002,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "confianca",
@@ -404,7 +559,11 @@
     "fundacao": 1936,
     "titulosEstaduais": 24,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "corinthians",
@@ -415,7 +574,11 @@
     "fundacao": 1910,
     "titulosEstaduais": 31,
     "titulosNacionais": 14,
-    "titulosInternacionais": 4
+    "titulosInternacionais": 4,
+    "cores": [
+      "Branco",
+      "Preto"
+    ]
   },
   {
     "id": "coritiba",
@@ -426,7 +589,11 @@
     "fundacao": 1909,
     "titulosEstaduais": 39,
     "titulosNacionais": 4,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "crb",
@@ -437,7 +604,11 @@
     "fundacao": 1912,
     "titulosEstaduais": 36,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "criciuma",
@@ -448,7 +619,12 @@
     "fundacao": 1947,
     "titulosEstaduais": 13,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "cruzeiro",
@@ -459,7 +635,11 @@
     "fundacao": 1921,
     "titulosEstaduais": 39,
     "titulosNacionais": 12,
-    "titulosInternacionais": 7
+    "titulosInternacionais": 7,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "csa",
@@ -470,7 +650,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 42,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "cse",
@@ -481,7 +665,12 @@
     "fundacao": 1947,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "cuiaba",
@@ -492,7 +681,11 @@
     "fundacao": 2001,
     "titulosEstaduais": 13,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Amarelo"
+    ]
   },
   {
     "id": "desportiva-ferroviaria",
@@ -503,7 +696,11 @@
     "fundacao": 1963,
     "titulosEstaduais": 20,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Grená",
+      "Branco"
+    ]
   },
   {
     "id": "ferroviaria",
@@ -514,7 +711,11 @@
     "fundacao": 1950,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Grená",
+      "Branco"
+    ]
   },
   {
     "id": "ferroviario",
@@ -525,7 +726,12 @@
     "fundacao": 1933,
     "titulosEstaduais": 9,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "figueirense",
@@ -536,7 +742,11 @@
     "fundacao": 1921,
     "titulosEstaduais": 18,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "flamengo",
@@ -547,7 +757,11 @@
     "fundacao": 1895,
     "titulosEstaduais": 40,
     "titulosNacionais": 18,
-    "titulosInternacionais": 8
+    "titulosInternacionais": 8,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "flamengo-pi",
@@ -558,7 +772,11 @@
     "fundacao": 1937,
     "titulosEstaduais": 17,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "floresta",
@@ -569,7 +787,11 @@
     "fundacao": 1954,
     "titulosEstaduais": 0,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "fluminense",
@@ -580,7 +802,12 @@
     "fundacao": 1902,
     "titulosEstaduais": 33,
     "titulosNacionais": 6,
-    "titulosInternacionais": 3
+    "titulosInternacionais": 3,
+    "cores": [
+      "Grená",
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "fortaleza",
@@ -591,7 +818,12 @@
     "fundacao": 1918,
     "titulosEstaduais": 47,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "gama",
@@ -602,7 +834,11 @@
     "fundacao": 1975,
     "titulosEstaduais": 15,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "ge-brasil",
@@ -613,7 +849,11 @@
     "fundacao": 1911,
     "titulosEstaduais": 4,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "goiania",
@@ -624,7 +864,11 @@
     "fundacao": 1938,
     "titulosEstaduais": 16,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "goias",
@@ -635,7 +879,11 @@
     "fundacao": 1943,
     "titulosEstaduais": 29,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "goiatuba",
@@ -646,7 +894,11 @@
     "fundacao": 1970,
     "titulosEstaduais": 6,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "gremio",
@@ -657,7 +909,12 @@
     "fundacao": 1903,
     "titulosEstaduais": 44,
     "titulosNacionais": 9,
-    "titulosInternacionais": 6
+    "titulosInternacionais": 6,
+    "cores": [
+      "Azul",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "guarani",
@@ -668,7 +925,11 @@
     "fundacao": 1911,
     "titulosEstaduais": 2,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "guarany-de-bage",
@@ -679,7 +940,11 @@
     "fundacao": 1907,
     "titulosEstaduais": 7,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "humaita",
@@ -690,7 +955,11 @@
     "fundacao": 2015,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Verde"
+    ]
   },
   {
     "id": "independencia",
@@ -701,7 +970,12 @@
     "fundacao": 1946,
     "titulosEstaduais": 14,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "inter-de-limeira",
@@ -712,7 +986,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 5,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "internacional",
@@ -723,7 +1001,11 @@
     "fundacao": 1909,
     "titulosEstaduais": 46,
     "titulosNacionais": 5,
-    "titulosInternacionais": 7
+    "titulosInternacionais": 7,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "itabaiana",
@@ -734,7 +1016,12 @@
     "fundacao": 1938,
     "titulosEstaduais": 10,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "ituano",
@@ -745,7 +1032,11 @@
     "fundacao": 1947,
     "titulosEstaduais": 3,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "jacuipense",
@@ -756,7 +1047,11 @@
     "fundacao": 1965,
     "titulosEstaduais": 1,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Grená",
+      "Branco"
+    ]
   },
   {
     "id": "ji-parana",
@@ -767,7 +1062,11 @@
     "fundacao": 1991,
     "titulosEstaduais": 11,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "joinville",
@@ -778,7 +1077,12 @@
     "fundacao": 1976,
     "titulosEstaduais": 15,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco",
+      "Vermelho"
+    ]
   },
   {
     "id": "juazeirense",
@@ -789,7 +1093,12 @@
     "fundacao": 2006,
     "titulosEstaduais": 1,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Amarelo",
+      "Verde"
+    ]
   },
   {
     "id": "juventude",
@@ -800,7 +1109,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 1,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "juventus",
@@ -811,7 +1124,11 @@
     "fundacao": 1924,
     "titulosEstaduais": 3,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Grená",
+      "Branco"
+    ]
   },
   {
     "id": "lagarto",
@@ -822,7 +1139,11 @@
     "fundacao": 2009,
     "titulosEstaduais": 0,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "londrina",
@@ -833,7 +1154,11 @@
     "fundacao": 1956,
     "titulosEstaduais": 8,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "luverdense",
@@ -844,7 +1169,11 @@
     "fundacao": 2004,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "macapa",
@@ -855,7 +1184,11 @@
     "fundacao": 1944,
     "titulosEstaduais": 18,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "madureira",
@@ -866,7 +1199,12 @@
     "fundacao": 1914,
     "titulosEstaduais": 0,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Grená",
+      "Amarelo"
+    ]
   },
   {
     "id": "manauara",
@@ -877,7 +1215,12 @@
     "fundacao": 2020,
     "titulosEstaduais": 1,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Laranja",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "manaus",
@@ -888,7 +1231,12 @@
     "fundacao": 2013,
     "titulosEstaduais": 7,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "maranhao",
@@ -899,7 +1247,12 @@
     "fundacao": 1932,
     "titulosEstaduais": 18,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Azul",
+      "Preto"
+    ]
   },
   {
     "id": "marcilio-dias",
@@ -910,7 +1263,11 @@
     "fundacao": 1919,
     "titulosEstaduais": 4,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Vermelho"
+    ]
   },
   {
     "id": "maringa",
@@ -921,7 +1278,12 @@
     "fundacao": 2010,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "mirassol",
@@ -932,7 +1294,11 @@
     "fundacao": 1925,
     "titulosEstaduais": 1,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Verde"
+    ]
   },
   {
     "id": "mixto",
@@ -943,7 +1309,11 @@
     "fundacao": 1934,
     "titulosEstaduais": 26,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "moto-club",
@@ -954,7 +1324,11 @@
     "fundacao": 1937,
     "titulosEstaduais": 28,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "nacional-am",
@@ -965,7 +1339,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 45,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "nautico",
@@ -976,7 +1354,11 @@
     "fundacao": 1901,
     "titulosEstaduais": 24,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "noroeste",
@@ -987,7 +1369,11 @@
     "fundacao": 1910,
     "titulosEstaduais": 5,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "nova-iguacu",
@@ -998,7 +1384,11 @@
     "fundacao": 1990,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Laranja",
+      "Azul"
+    ]
   },
   {
     "id": "novorizontino",
@@ -1009,7 +1399,11 @@
     "fundacao": 2010,
     "titulosEstaduais": 1,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Preto"
+    ]
   },
   {
     "id": "operario-ms",
@@ -1020,7 +1414,11 @@
     "fundacao": 1938,
     "titulosEstaduais": 19,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "operario-mt",
@@ -1031,7 +1429,12 @@
     "fundacao": 1949,
     "titulosEstaduais": 12,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "operario-pr",
@@ -1042,7 +1445,11 @@
     "fundacao": 1912,
     "titulosEstaduais": 6,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "osasco-sporting",
@@ -1053,7 +1460,11 @@
     "fundacao": 1921,
     "titulosEstaduais": 3,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "palmeiras",
@@ -1064,7 +1475,11 @@
     "fundacao": 1914,
     "titulosEstaduais": 27,
     "titulosNacionais": 20,
-    "titulosInternacionais": 6
+    "titulosInternacionais": 6,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "parana",
@@ -1075,7 +1490,12 @@
     "fundacao": 1989,
     "titulosEstaduais": 9,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "paranavai",
@@ -1086,7 +1506,11 @@
     "fundacao": 1946,
     "titulosEstaduais": 6,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "paulista",
@@ -1097,7 +1521,12 @@
     "fundacao": 1909,
     "titulosEstaduais": 2,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "paysandu",
@@ -1108,7 +1537,11 @@
     "fundacao": 1914,
     "titulosEstaduais": 51,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "pelotas",
@@ -1119,7 +1552,11 @@
     "fundacao": 1908,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Amarelo"
+    ]
   },
   {
     "id": "piaui",
@@ -1130,7 +1567,12 @@
     "fundacao": 1948,
     "titulosEstaduais": 9,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "ponte-preta",
@@ -1141,7 +1583,11 @@
     "fundacao": 1900,
     "titulosEstaduais": 2,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "porto-velho",
@@ -1152,7 +1598,12 @@
     "fundacao": 2018,
     "titulosEstaduais": 5,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "portuguesa",
@@ -1163,7 +1614,11 @@
     "fundacao": 1920,
     "titulosEstaduais": 6,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Verde"
+    ]
   },
   {
     "id": "portuguesa-rj",
@@ -1174,7 +1629,11 @@
     "fundacao": 1924,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Verde"
+    ]
   },
   {
     "id": "pouso-alegre",
@@ -1185,7 +1644,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "primavera",
@@ -1196,7 +1659,12 @@
     "fundacao": 1927,
     "titulosEstaduais": 0,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "rb-bragantino",
@@ -1207,7 +1675,12 @@
     "fundacao": 1928,
     "titulosEstaduais": 3,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Branco",
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "remo",
@@ -1218,7 +1691,11 @@
     "fundacao": 1905,
     "titulosEstaduais": 48,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "retro",
@@ -1229,7 +1706,11 @@
     "fundacao": 2016,
     "titulosEstaduais": 0,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Amarelo"
+    ]
   },
   {
     "id": "rio-branco-ac",
@@ -1240,7 +1721,11 @@
     "fundacao": 1919,
     "titulosEstaduais": 49,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "rio-branco-es",
@@ -1251,7 +1736,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 41,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "river-pi",
@@ -1262,7 +1751,12 @@
     "fundacao": 1946,
     "titulosEstaduais": 32,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco",
+      "Vermelho"
+    ]
   },
   {
     "id": "sampaio-correa",
@@ -1273,7 +1767,12 @@
     "fundacao": 1923,
     "titulosEstaduais": 37,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Amarelo",
+      "Verde"
+    ]
   },
   {
     "id": "santa-cruz",
@@ -1284,7 +1783,12 @@
     "fundacao": 1914,
     "titulosEstaduais": 29,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "santo-andre",
@@ -1295,7 +1799,11 @@
     "fundacao": 1967,
     "titulosEstaduais": 5,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "santos",
@@ -1306,7 +1814,11 @@
     "fundacao": 1912,
     "titulosEstaduais": 22,
     "titulosNacionais": 10,
-    "titulosInternacionais": 8
+    "titulosInternacionais": 8,
+    "cores": [
+      "Branco",
+      "Preto"
+    ]
   },
   {
     "id": "sao-bernardo",
@@ -1317,7 +1829,11 @@
     "fundacao": 2004,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Preto"
+    ]
   },
   {
     "id": "sao-caetano",
@@ -1328,7 +1844,11 @@
     "fundacao": 1989,
     "titulosEstaduais": 5,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "sao-jose-rs",
@@ -1339,7 +1859,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "sao-jose-sp",
@@ -1350,7 +1874,12 @@
     "fundacao": 1933,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco",
+      "Amarelo"
+    ]
   },
   {
     "id": "sao-paulo",
@@ -1361,7 +1890,12 @@
     "fundacao": 1930,
     "titulosEstaduais": 22,
     "titulosNacionais": 8,
-    "titulosInternacionais": 12
+    "titulosInternacionais": 12,
+    "cores": [
+      "Branco",
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "sao-raimundo",
@@ -1372,7 +1906,11 @@
     "fundacao": 1963,
     "titulosEstaduais": 14,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "sergipe",
@@ -1383,7 +1921,11 @@
     "fundacao": 1909,
     "titulosEstaduais": 37,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "sousa",
@@ -1394,7 +1936,11 @@
     "fundacao": 1991,
     "titulosEstaduais": 5,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "sport",
@@ -1405,7 +1951,11 @@
     "fundacao": 1905,
     "titulosEstaduais": 46,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "tocantinopolis",
@@ -1416,7 +1966,11 @@
     "fundacao": 1989,
     "titulosEstaduais": 8,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "tombense",
@@ -1427,7 +1981,11 @@
     "fundacao": 1914,
     "titulosEstaduais": 3,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "treze",
@@ -1438,7 +1996,11 @@
     "fundacao": 1925,
     "titulosEstaduais": 17,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "tuna-luso",
@@ -1449,7 +2011,12 @@
     "fundacao": 1903,
     "titulosEstaduais": 12,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "uberlandia",
@@ -1460,7 +2027,11 @@
     "fundacao": 1922,
     "titulosEstaduais": 3,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "uniao-sao-joao",
@@ -1471,7 +2042,11 @@
     "fundacao": 1981,
     "titulosEstaduais": 1,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "vasco-da-gama",
@@ -1482,7 +2057,11 @@
     "fundacao": 1898,
     "titulosEstaduais": 24,
     "titulosNacionais": 6,
-    "titulosInternacionais": 4
+    "titulosInternacionais": 4,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "velo-clube",
@@ -1493,7 +2072,12 @@
     "fundacao": 1910,
     "titulosEstaduais": 2,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Verde",
+      "Branco"
+    ]
   },
   {
     "id": "vila-nova",
@@ -1504,7 +2088,11 @@
     "fundacao": 1943,
     "titulosEstaduais": 17,
     "titulosNacionais": 3,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Branco"
+    ]
   },
   {
     "id": "vitoria",
@@ -1515,7 +2103,11 @@
     "fundacao": 1899,
     "titulosEstaduais": 29,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Vermelho",
+      "Preto"
+    ]
   },
   {
     "id": "vitoria-es",
@@ -1526,7 +2118,11 @@
     "fundacao": 1912,
     "titulosEstaduais": 10,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Azul",
+      "Branco"
+    ]
   },
   {
     "id": "volta-redonda",
@@ -1537,7 +2133,11 @@
     "fundacao": 1976,
     "titulosEstaduais": 4,
     "titulosNacionais": 2,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Amarelo",
+      "Preto"
+    ]
   },
   {
     "id": "xv-de-piracicaba",
@@ -1548,7 +2148,11 @@
     "fundacao": 1913,
     "titulosEstaduais": 5,
     "titulosNacionais": 1,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Preto",
+      "Branco"
+    ]
   },
   {
     "id": "ypiranga",
@@ -1559,6 +2163,10 @@
     "fundacao": 1924,
     "titulosEstaduais": 4,
     "titulosNacionais": 0,
-    "titulosInternacionais": 0
+    "titulosInternacionais": 0,
+    "cores": [
+      "Verde",
+      "Amarelo"
+    ]
   }
 ]

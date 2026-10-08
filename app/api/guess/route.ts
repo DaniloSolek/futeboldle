@@ -15,6 +15,25 @@ function compararNumero(
   return { status: "errado", direcao: valor < correto ? "maior" : "menor" };
 }
 
+function normalizarCor(cor: string): string {
+  return cor
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function compararCores(valor: string[], correto: string[]): StatusAtributo {
+  const a = valor.map(normalizarCor);
+  const b = correto.map(normalizarCor);
+
+  const mesmasCores = a.length === b.length && a.every((c) => b.includes(c));
+  if (mesmasCores) return "correto";
+
+  if (a.some((c) => b.includes(c))) return "parcial";
+  return "errado";
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const guessId: string = body?.guess;
@@ -64,6 +83,9 @@ export async function POST(req: NextRequest) {
 
   const acertou = palpite.id === correto.id;
 
+  const coresPalpite = palpite.cores ?? [];
+  const coresCorretas = correto.cores ?? [];
+
   const resultado: ResultadoComparacao = {
     acertou,
     nomeCorreto: acertou ? correto.nome : undefined,
@@ -83,6 +105,10 @@ export async function POST(req: NextRequest) {
       divisao: {
         valor: palpite.divisao,
         status: compararTexto(palpite.divisao, correto.divisao),
+      },
+      cores: {
+        valor: coresPalpite,
+        status: compararCores(coresPalpite, coresCorretas),
       },
       titulosEstaduais: {
         valor: palpite.titulosEstaduais,
