@@ -56,6 +56,18 @@ function parseCSV(texto) {
   return registros;
 }
 
+const MAX_CORES = 3;
+
+function parseCores(bruto) {
+  const vistas = new Set();
+  return bruto
+    .split(/[,;]/)
+    .map((c) => c.trim())
+    .filter(Boolean)
+    .map((c) => c.charAt(0).toUpperCase() + c.slice(1).toLowerCase())
+    .filter((c) => (vistas.has(c) ? false : vistas.add(c)));
+}
+
 function main() {
   if (!fs.existsSync(CSV_PATH)) {
     console.error(`Arquivo não encontrado: ${CSV_PATH}`);
@@ -112,6 +124,20 @@ function main() {
         time[campo] = numero;
       }
     }
+
+    const cores = parseCores(reg.cores || "");
+    if (cores.length === 0) {
+      erros.push(`Linha ${linha} (${reg.nome}): campo "cores" vazio.`);
+    }
+    if (cores.length > MAX_CORES) {
+      erros.push(
+        `Linha ${linha} (${reg.nome}): ${cores.length} cores informadas, mantendo só as ${MAX_CORES} primeiras.`
+      );
+    }
+    time.cores = cores.slice(0, MAX_CORES);
+
+    if (!valoresPorCampo.cores) valoresPorCampo.cores = new Set();
+    time.cores.forEach((c) => valoresPorCampo.cores.add(c));
 
     times.push(time);
   }
